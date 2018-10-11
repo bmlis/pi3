@@ -1,0 +1,25 @@
+---
+- name: Install Emacs
+  pacman:
+    name: emacs
+    state: present
+    update_cache: true
+
+- name: Clone emacs config
+  git:
+    repo: "git@github.com:{{ github_user }}/.emacs.d.git"
+    dest: "{{ user_home }}/.emacs.d/"
+    version: master
+    accept_hostkey: yes
+    key_file: "{{ user_home }}/.ssh/github"
+  become_user: "{{ user }}"
+
+- name: Symlink emacs service config
+  file:
+    src: "{{ user_home }}/.emacs.d/emacs@.service"
+    dest: "/etc/systemd/system/emacs.service"
+    state: link
+
+- name: Enable emacs service
+  shell: systemctl enable --user emacs
+  become_user: "{{ user }}"

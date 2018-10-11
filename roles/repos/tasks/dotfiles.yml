@@ -1,0 +1,9 @@
+---
+- name: Clone dotfiles
+  git:
+    repo: "git@github.com:{{ github_user }}/dotfiles"
+    dest: "{{ user_home }}/Customization/dotfiles"
+    version: master
+    accept_hostkey: yes
+    key_file: "{{ user_home }}/.ssh/github"
+  become_user: "{{ user }}"

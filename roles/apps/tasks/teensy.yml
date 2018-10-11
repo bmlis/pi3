@@ -1,0 +1,6 @@
+---
+- name: Install teensy
+  pacman:
+    name: teensy-loader-cli
+    state: present
+    update_cache: true

@@ -1,0 +1,16 @@
+---
+- name: Check if {{ pkg_name }} exists
+  shell: echo `pacman -Qs {{ pkg_name }}`
+  register: exists
+
+- name: Install {{ pkg_name }}
+  when: exists.stdout == ''
+  shell: yaourt --noconfirm -S {{ pkg_name }}
+  become_user: aur_builder
+
+- name: Check {{ pkg_name }} installed correctly
+  shell: echo `pacman -Qs {{ pkg_name }}`
+  register: installed
+
+- fail: msg="The execution has failed because of errors."
+  when: installed == ""

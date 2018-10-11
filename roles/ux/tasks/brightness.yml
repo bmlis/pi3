@@ -1,0 +1,5 @@
+- name: Install xbacklight
+  pacman:
+    name: xorg-xbacklight
+    state: present
+    update_cache: true

@@ -1,0 +1,23 @@
+---
+- name: Get fantasque url
+  shell: echo `curl -s https://api.github.com/repos/belluzj/fantasque-sans/releases/latest | grep browser_download_url | cut -d '"' -f 4 | grep Normal.tar.gz`
+  register: fantasqueUrl
+
+- name: Download fantasque sans mono
+  get_url:
+    url: "{{ fantasqueUrl.stdout }}"
+    dest: /tmp/fantaqueSansMono.tar.gz
+
+- name: Ensure fantasque temp directory exists
+  file:
+    path: /usr/share/fonts/fantasque
+    state: directory
+
+- name: Extract fantasque archive
+  unarchive:
+    src: /tmp/fantaqueSansMono.tar.gz
+    dest: /usr/share/fonts/fantasque
+    copy: no
+
+- name: Refresh fonts cache
+  shell: fc-cache

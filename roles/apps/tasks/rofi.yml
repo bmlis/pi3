@@ -1,0 +1,17 @@
+---
+- name: Install rofi
+  pacman:
+    name: rofi
+    state: present
+    update_cache: true
+
+- name: Ensure rofi config dir exists
+  file:
+    path: "{{ user_home }}/.config/rofi"
+    state: directory
+
+- name: Symlink rofi config
+  file:
+    src: "{{ user_home }}/Customization/i3/rofi/config"
+    dest: "{{ user_home }}/.config/rofi/config"
+    state: link

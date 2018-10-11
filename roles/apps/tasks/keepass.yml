@@ -1,0 +1,6 @@
+---
+- name: Install Keepass
+  pacman:
+    name: keepassxc
+    state: present
+    update_cache: true

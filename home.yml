@@ -1,0 +1,16 @@
+---
+
+- name: Configure home environment
+  hosts: localhost
+  become: true
+  vars:
+    user: h3ra
+    user_home: /home/h3ra
+    github_user: bmlis
+    environment: home
+    update_cache: true
+  roles:
+    - repos
+    - apps
+    - ux
+    - programming

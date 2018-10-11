@@ -1,0 +1,6 @@
+---
+- include_tasks: i3.yml
+- include_tasks: pyenv.yml
+- include_tasks: brightness.yml
+- include_tasks: terminal.yml
+- include_tasks: shell.yml

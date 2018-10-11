@@ -1,0 +1,9 @@
+---
+- name: Clone i3 config
+  git:
+    repo: "git@github.com:{{ github_user }}/i3-custom"
+    dest: "{{ user_home }}/Customization/i3"
+    version: master
+    accept_hostkey: yes
+    key_file: "{{ user_home }}/.ssh/github"
+  become_user: "{{ user }}"

@@ -1,0 +1,10 @@
+---
+- name: Install pulseaudio
+  pacman:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  with_items:
+    - pavucontrol
+    - pa-applet
+    - pulseaudio

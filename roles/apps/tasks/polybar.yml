@@ -1,0 +1,24 @@
+---
+- include: yaourt.yml pkg_name=ttf-font-awesome-4
+
+- name: Install polybar
+  pacman:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  with_items:
+    - libmpdclient
+    - xcb-util-cursor
+    - xcb-util-xrm
+    - alsa-lib
+    - libpulse
+    - wireless_tools
+    - noto-fonts
+    - jsoncpp
+    - polybar
+
+- name: Symlink polybar config
+  file:
+    src: "{{ user_home }}/Customization/i3/polybar"
+    dest: "{{ user_home }}/.config/polybar"
+    state: link

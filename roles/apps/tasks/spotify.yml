@@ -1,0 +1,2 @@
+---
+- include: yaourt.yml pkg_name=spotify

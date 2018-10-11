@@ -1,0 +1,6 @@
+---
+- name: Symlink emacs service config
+  file:
+    src: "{{ user_home }}/Customization/i3/.Xresources"
+    dest: "{{ user_home }}/.Xresources"
+    state: link

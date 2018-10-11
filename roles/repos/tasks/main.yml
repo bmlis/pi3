@@ -1,0 +1,4 @@
+---
+- include_tasks: structure.yml
+# - include_tasks: dotfiles.yml
+# - include_tasks: i3.yml

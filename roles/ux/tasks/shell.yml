@@ -1,0 +1,36 @@
+---
+- name: Install zsh
+  pacman:
+    name: zsh
+    state: present
+
+- name: Set zsh as default shell
+  user:
+    name: "{{ user }}"
+    shell: /bin/zsh
+
+- name: Install oh-my-zsh
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    dest: "{{ user_home }}/.oh-my-zsh"
+    version: master
+    force: yes
+  become_user: "{{ user }}"
+
+- name: Symlink zsh config
+  file:
+    src: "{{ user_home }}/Customization/dotfiles/.zshrc"
+    dest: "{{ user_home }}/.zshrc"
+    state: link
+
+- name: Symlink aliases
+  file:
+    src: "{{ user_home }}/Customization/dotfiles/.aliases"
+    dest: "{{ user_home }}/.aliases"
+    state: link
+
+- name: Symlink gitconfig
+  file:
+    src: "{{ user_home }}/Customization/dotfiles/.gitconfig"
+    dest: "{{ user_home }}/.gitconfig"
+    state: link
