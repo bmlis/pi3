@@ -1,5 +1,5 @@
 ---
-- name: Clone dotfiles
+- name: Install pyenv
   git:
     repo: "https://github.com/pyenv/pyenv.git"
     dest: "{{ user_home }}/.pyenv"
