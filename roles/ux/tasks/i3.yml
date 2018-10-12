@@ -16,3 +16,15 @@
     src: "{{ user_home }}/Customization/i3/icons/Paper"
     dest: "/usr/share/icons/Paper"
     state: link
+
+- name: Symlink morc menu
+  file:
+    src: "{{ user_home }}/Customization/i3/morc_menu"
+    dest: "{{ user_home }}/.config/morc_menu"
+    state: link
+
+- name: Install py3status
+  pacman:
+    name: py3status
+    state: present
+    update_cache: true
