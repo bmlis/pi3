@@ -7,17 +7,24 @@
 
 - name: Clone emacs config
   git:
-    repo: "git@github.com:{{ github_user }}/.emacs.d.git"
+    repo: "https://github.com/syl20bnr/spacemacs"
     dest: "{{ user_home }}/.emacs.d/"
-    version: master
-    accept_hostkey: yes
-    key_file: "{{ user_home }}/.ssh/github"
+    version: develop
   become_user: "{{ user }}"
 
-- name: Symlink emacs service config
+# - name: Clone emacs config
+#   git:
+#     repo: "git@github.com:{{ github_user }}/.emacs.d.git"
+#     dest: "{{ user_home }}/.emacs.d/"
+#     version: master
+#     accept_hostkey: yes
+#     key_file: "{{ user_home }}/.ssh/github"
+#   become_user: "{{ user }}"
+
+- name: Symlink spacemacs
   file:
-    src: "{{ user_home }}/.emacs.d/emacs@.service"
-    dest: "/etc/systemd/system/emacs.service"
+    src: "{{ user_home }}/Customization/.dotfiles/.spacemacs"
+    dest: "{{ user_home }}/.spacemacs"
     state: link
 
 - name: Enable emacs service
