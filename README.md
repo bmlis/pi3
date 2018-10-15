@@ -14,4 +14,5 @@ because automatic update breaks it. Also disable autostart and just start it in 
 
 TODO:
 - write better readme
+- backup jobs for .Xresources, dunst, morc_menu, i3 because it crashes on every symbolic link creation
 - ???

@@ -23,7 +23,7 @@
 
 - name: Symlink spacemacs
   file:
-    src: "{{ user_home }}/Customization/.dotfiles/.spacemacs"
+    src: "{{ user_home }}/Customization/dotfiles/.spacemacs"
     dest: "{{ user_home }}/.spacemacs"
     state: link
 
