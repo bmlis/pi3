@@ -1,2 +1,2 @@
 ---
-- include: yaourt.yml pkg_name=postman
+- include: yaourt.yml pkg_name=postman-bin
