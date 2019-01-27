@@ -1,6 +1,6 @@
 ---
 - name: Install nextcloud
   pacman:
-    name: nextcloud
+    name: nextcloud-client
     state: present
     update_cache: true

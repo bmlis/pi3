@@ -1,12 +1,7 @@
 ---
 - include_tasks: aur_builder.yml
-- include_tasks: dropbox.yml
-- include_tasks: pulseaudio.yml
 - include_tasks: teensy.yml
-- include_tasks: rofi.yml
-- include_tasks: firefox.yml
 - include_tasks: spotify.yml
-- include_tasks: polybar.yml
-- include_tasks: chrome.yml
+- include_tasks: nextcloud.yml
 - include_tasks: keepass.yml
 - include_tasks: postman.yml
