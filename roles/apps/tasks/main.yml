@@ -3,7 +3,6 @@
 - include_tasks: dropbox.yml
 - include_tasks: pulseaudio.yml
 - include_tasks: teensy.yml
-- include_tasks: calendar.yml
 - include_tasks: rofi.yml
 - include_tasks: firefox.yml
 - include_tasks: spotify.yml
