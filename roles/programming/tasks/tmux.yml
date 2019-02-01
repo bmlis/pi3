@@ -1,9 +1,11 @@
 ---
 - name: Install tmux
   pacman:
-    name: tmux
+    name: "{{ item }}"
     state: present
-    update_cache: true
+  with_items:
+  - tmux
+  - xsel
 
 - name: Symlink tmux
   file:
