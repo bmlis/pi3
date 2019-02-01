@@ -1,0 +1,12 @@
+---
+- name: Install tmux
+  pacman:
+    name: tmux
+    state: present
+    update_cache: true
+
+- name: Symlink tmux
+  file:
+    src: "{{ user_home }}/Customization/dotfiles/.tmux.conf"
+    dest: "{{ user_home }}/.tmux.conf"
+    state: link
