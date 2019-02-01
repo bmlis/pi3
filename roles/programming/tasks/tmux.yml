@@ -10,3 +10,11 @@
     src: "{{ user_home }}/Customization/dotfiles/.tmux.conf"
     dest: "{{ user_home }}/.tmux.conf"
     state: link
+
+- name: Clone dotfiles
+  git:
+    repo: "https://github.com/tmux-plugins/tpm"
+    dest: "{{ user_home }}/.tmux/plugins/tpm"
+    version: master
+    accept_hostkey: yes
+  become_user: "{{ user }}"
