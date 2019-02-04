@@ -7,3 +7,21 @@
     accept_hostkey: yes
     key_file: "{{ user_home }}/.ssh/github"
   become_user: "{{ user }}"
+
+- name: Symlink global shortcuts
+  file:
+    src: "{{ user_home }}/Customization/dotfiles/kde/kdeglobals"
+    dest: "{{ user_home }}/.config/kdeglobals"
+    state: link
+
+- name: Symlink standard shortcuts
+  file:
+    src: "{{ user_home }}/Customization/dotfiles/kde/kglobalshortcutsrc"
+    dest: "{{ user_home }}/.config/kdeglobals"
+    state: link
+
+- name: Symlink custom shortcuts
+  file:
+    src: "{{ user_home }}/Customization/dotfiles/kde/khotkeysrc"
+    dest: "{{ user_home }}/.config/kdeglobals"
+    state: link

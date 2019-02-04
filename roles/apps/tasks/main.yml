@@ -3,5 +3,6 @@
 - include_tasks: teensy.yml
 - include_tasks: spotify.yml
 - include_tasks: nextcloud.yml
+- include_tasks: dropbox.yml
 - include_tasks: keepass.yml
 - include_tasks: postman.yml
